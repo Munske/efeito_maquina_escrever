@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Efeito Máquina de Escrever</title>
+
+    <style>
+        body{
+            font-family: 'Courier New', Courier, monospace;
+            overflow: hidden;
+            background-color: #111111;
+            color: #e8e4e4;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding: 0 10%;
+            }
+
+            h1::after{
+                content: "|";
+                animation: piscar 1s infinite;
+            }
+        
+        @keyframes piscar {
+            from{
+                opacity: 1;
+            }
+            to{
+                opacity: 0;
+            }
+        }
+
+    </style>
+
+</head>
+<body>
+    
+    <h1></h1>
+
+    <script>
+        let h1_tag = document.querySelector("h1");
+        let text = "Olá, meu nome é BIP e eu sou uma máquina de escrever!";
+
+        text.split('').forEach((l, index) => {
+            setTimeout(() => {
+                h1_tag.innerHTML += l
+            }, 80 * index)
+        })
+    </script>
+</body>
+</html>
